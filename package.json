@@ -5,7 +5,6 @@
     "ng": "ng",
     "start": "node server.js",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "heroku-postbuild": "ng build --aot --prod"
   },
@@ -23,11 +22,12 @@
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
     "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
     "ngx-pagination": "^5.1.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4",
-    "typescript": "~4.5.2"
+    "typescript": "~4.5.2",
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.2",
