@@ -3,7 +3,7 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static(__dirname + '/dis/price-checker'));
+app.use(express.static(__dirname + '/dist/price-checker'));
 
 app.get('/*', function(req, res){
   res.sendFile(path.join(__dirname+'/dist/price-checker/index.html'));
