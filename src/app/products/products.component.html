@@ -1,0 +1,84 @@
+<section class="page-container">
+  <section class="product-header-container">
+    <!-- Banner image for the project -->
+    <div class="products-banner" style="background: url({{bannerImage}});">
+      <!-- Category Name -->
+      <h2>
+        {{categoryName}}
+      </h2>
+    </div>
+  </section>
+
+
+    <!-- Search fiters and search bar -->
+    <section class="search-filter-container">
+
+      <button (click)="searchButtonClicked()" class="filters-button" mat-flat-button>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M4 10h7.09a6 6 0 0 0 11.82 0H44a1 1 0 0 0 0-2H22.91A6 6 0 0 0 11.09 8H4a1 1 0 0 0 0 2zM17 5a4 4 0 1 1-4 4A4 4 0 0 1 17 5zM44 23H36.91a6 6 0 0 0-11.82 0H4a1 1 0 0 0 0 2H25.09a6 6 0 0 0 11.82 0H44a1 1 0 0 0 0-2zM31 28a4 4 0 1 1 4-4A4 4 0 0 1 31 28zM44 38H22.91a6 6 0 0 0-11.82 0H4a1 1 0 0 0 0 2h7.09a6 6 0 0 0 11.82 0H44a1 1 0 0 0 0-2zM17 43a4 4 0 1 1 4-4A4 4 0 0 1 17 43z" data-name="Layer 15"/></svg>
+      </button>
+
+      <input placeholder="Search" type="text" class="search-box" (change)="onTextChange($event)">
+
+
+      <button mat-flat-button (click)="changeSorting()" class="order-toggle">
+        <!-- Asc image -->
+        <img *ngIf="search.PriceFilter == -1" src="/assets/asc.svg" alt="">
+
+        <!-- Desc image -->
+        <img *ngIf="search.PriceFilter == 1" src="/assets/desc.svg" alt="">
+      </button>
+    </section>
+
+
+
+  <!-- Results container -->
+  <section class="search-results-container">
+    <!-- Holds the search results and teh filter options on the side -->
+    <mat-drawer-container class="search-detail-container">
+      <mat-drawer class="side-filter" mode="over" [opened]="sideFilter" >
+        <app-search-filter [maxForMin]="maxForMin"  [minForMax]="minForMax" [filterOptions]="filterOptions" [minMax]="minMax" [searchQuery]="search" [manufacturers]="manufacturers" (selectedEvent)="retreiveSearchQuery($event)"></app-search-filter>
+      </mat-drawer>
+      <mat-drawer-content>
+        <!-- Search result holder -->
+        <div class="search-result-holder">
+            <!-- List of products from search result -->
+            <ul class="products-list" >
+              <!-- Product List item -->
+              <li class="product-item" *ngFor="let prod of products | paginate: {itemsPerPage: 24, currentPage: p}">
+                <!-- Product Container -->
+                <div class="product">
+                  <!-- Image -->
+                  <img src={{prod.imageUri}} alt="">
+                  <!-- Name -->
+
+                  <app-selection-loader *ngIf="loading" cHeight="35" cWidth="80"></app-selection-loader>
+                  <p *ngIf="!loading" class="product-name">
+                    {{prod.name}}
+                  </p>
+                  <!-- Site -->
+                  <app-selection-loader *ngIf="loading" cHeight="20" cWidth="50"></app-selection-loader>
+                  <p *ngIf="!loading" class="site">
+                    {{changeToStoreName(prod.storeId)}}
+                  </p>
+                  <!-- Price -->
+                  <app-selection-loader *ngIf="loading" cHeight="20" cWidth="50"></app-selection-loader>
+                  <p *ngIf="!loading" class="price">
+                    {{formatPrice(prod.currentPrice)}}
+                  </p>
+                </div>
+              </li>
+           </ul>
+          <div class="pagination">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </mat-drawer-content>
+
+
+
+    </mat-drawer-container>
+  </section>
+
+
+
+</section>

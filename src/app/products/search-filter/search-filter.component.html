@@ -1,0 +1,73 @@
+<section class="search-filter-container">
+
+  <!-- Main search filter container -->
+  <div class="search-filter">
+
+    <!-- Min and Max price -->
+    <div class="price-filter">
+      <!-- Min Price -->
+      <div class="price">
+        <h2 class="price-header">
+          Min Price: R {{searchQuery.Price.min}}
+        </h2>
+        <mat-slider
+        class="price-slider"
+        #minPrice
+        thumbLabel
+        tickInterval="10"
+        [min]="minMax.min"
+        [max]="maxForMin"
+        [value]="minMax.min"
+        (input)="minPriceChange(minPrice.value)"></mat-slider>
+      </div>
+
+      <div class="price">
+        <h2 class="price-header">
+          Max Price: R {{searchQuery.Price.max}}
+        </h2>
+        <mat-slider
+        class="price-slider"
+        #maxPrice
+        (input)="maxPriceChange(maxPrice.value)"
+        thumbLabel
+        tickInterval="10"
+        [value]="minMax.max"
+        [min]="minForMax"
+        [max]="minMax.max"></mat-slider>
+      </div>
+    </div>
+
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Brand
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <!-- Selecttion -->
+        <mat-selection-list #brand (selectionChange)="showSelection(brand.selectedOptions.selected)">
+          <mat-list-option [value]="manu" *ngFor="let manu of manufacturers">
+            {{manu.name}}
+          </mat-list-option>
+        </mat-selection-list>
+    </mat-expansion-panel>
+
+
+    <!-- Additional One -->
+    <!-- <mat-expansion-panel *ngFor="let filter of filterOptions">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{filter.Heading}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <mat-selection-list #additionalOne (selectionChange)="showSelection(additionalOne.selectedOptions.selected)">
+          <mat-list-option [value]="option" *ngFor="let option of filter.Options">
+            {{option}}
+          </mat-list-option>
+        </mat-selection-list>
+    </mat-expansion-panel> -->
+
+
+  </div>
+
+</section>

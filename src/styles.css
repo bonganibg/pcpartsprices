@@ -1,0 +1,41 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@font-face {
+  font-family: "Nunito";
+  src: local("Nunito"), url(./assets/fonts/Nunito-Black.ttf) format("truetype");
+}
+
+
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+body{
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
+h2{
+  margin: 0px;
+}
+
+p{
+  margin: 0px;
+}
+
+li{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+ul{
+  margin: 0px;
+  padding: 0px;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}

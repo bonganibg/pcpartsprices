@@ -1,0 +1,30 @@
+.search-filter-container{
+  height: 100%;
+  width: 100%;
+
+  .search-filter{
+    display: flex;
+    flex-direction: column;
+
+    .price-filter{
+      display: flex;
+      flex-direction: column;
+
+      .price{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+
+        .price-header{
+          font-size: 1em;
+          font-weight: 100;
+          margin: 0px auto
+        }
+
+        .price-slider{
+          margin: 0px 5%;
+        }
+      }
+    }
+  }
+}

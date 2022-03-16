@@ -1,0 +1,85 @@
+$TextColor: #FFF;
+$StoresBannerColor: rgb(238, 238, 238);
+
+
+.category-banner-container{
+  height: 50vh;
+
+  // Banner header
+  .categories-header{
+    height: 100%;
+    width: 100%;
+    background: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    // Store Name
+    .store-name{
+      font-size: 2.5em;
+      color: #DDDDDD;
+      margin: 0px  0px  0px 5%;
+    }
+  }
+}
+
+
+
+$TextColor: #FFF;
+$StoresBannerColor: rgb(238, 238, 238);
+*{
+  font-family: "Nunito";
+}
+// Categories container
+.categories-container
+{
+
+  // List of categories
+  .list-categories{
+    margin: 100px 20%;
+    display: grid;
+    align-items: center;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+
+    @media screen and (max-width: 560px) {
+      margin: 100px 0;
+    }
+
+    // Individual item
+    .category-item{
+      background-color: $StoresBannerColor;
+      height: 500px;
+      width: 350px;
+      margin: 0px auto;
+      border-radius: 20px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
+      // Category link
+      .category-link{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .category{
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: end;
+
+          h2{
+            font-size: 2em;
+            color: white;
+            margin: 25px;
+            font-weight: 100;
+          }
+        }
+      }
+    }
+  }
+
+}
+

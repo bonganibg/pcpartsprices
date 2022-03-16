@@ -1,0 +1,36 @@
+<section class="category-banner-container">
+  <!-- Hero holder -->
+  <div class="categories-header">
+    <!-- Site Name -->
+    <h2 class="store-name">
+      PC Part Prices
+    </h2>
+  </div>
+
+</section>
+
+
+<!-- Product Categories -->
+<section class="categories-container">
+
+  <!-- List of categories -->
+  <ul class="list-categories">
+
+    <!-- indi category -->
+    <li class="category-item" *ngFor="let cat of categories">
+
+      <app-selection-loader *ngIf="loading" cHeight="350" cWidth="100"></app-selection-loader>
+      <a *ngIf="!loading" [routerLink]="['/result']" [queryParams]="{cat: cat.ID}" class="category-link">
+        <!-- Category Item -->
+        <div class="category" style="background: url({{cat.Image}});
+                                    background-size: cover; background-position: center;">
+          <h2>
+              {{cat.Name}}
+          </h2>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+
+</section>
